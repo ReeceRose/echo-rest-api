@@ -19,6 +19,7 @@ git clone git@github.com:ReeceRose/echo-rest-api.git .
 Install all project dependencies
 
 ```bash
+go mod vendor
 go mod download
 ```
 
