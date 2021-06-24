@@ -4,7 +4,7 @@ Simple REST API made in Go with the [echo](https://github.com/labstack/echo) web
 
 ## About
 
-This is a re-creation of [Fiber REST API](https://github.com/ReeceRose/fiber-rest-api), which is a REST API for books that uses the Fiber web framework. This is to compare the frameworks and see which I enjoy more and will be using for upcoming projects.
+This is a re-creation of [Fiber REST API](https://github.com/ReeceRose/fiber-rest-api) and [Chi REST API](https://github.com/ReeceRose/chi-rest-api), which are REST APIs for books that uses the Fiber and Echo web framework. This is to compare the frameworks and see which I enjoy more and will be using for upcoming projects.
 
 ## Clone repository
 
