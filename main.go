@@ -5,6 +5,7 @@ import (
 
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 
 	"github.com/reecerose/echo-rest-api/database"
 	"github.com/reecerose/echo-rest-api/models"
@@ -27,6 +28,9 @@ func initDatabase() {
 
 func main() {
 	e := echo.New()
+
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
 
 	initDatabase()
 	defer database.DBConn.Close()
