@@ -6,9 +6,9 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo/v4"
 
-	"github.com/reecerose/echo-rest-api/controllers"
 	"github.com/reecerose/echo-rest-api/database"
 	"github.com/reecerose/echo-rest-api/models"
+	"github.com/reecerose/echo-rest-api/routes"
 )
 
 func initDatabase() {
@@ -31,10 +31,7 @@ func main() {
 	initDatabase()
 	defer database.DBConn.Close()
 
-	e.GET("/api/v1/book", controllers.GetBooks)
-	e.GET("/api/v1/book/:id", controllers.GetBook)
-	e.POST("/api/v1/book", controllers.NewBook)
-	e.DELETE("/api/v1/book/:id", controllers.DeleteBook)
+	routes.SetupRoutes(e)
 
 	e.Logger.Fatal(e.Start(":3000"))
 }
