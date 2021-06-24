@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo/v4"
 
+	"github.com/reecerose/echo-rest-api/controllers"
 	"github.com/reecerose/echo-rest-api/database"
 	"github.com/reecerose/echo-rest-api/models"
 )
@@ -31,8 +31,10 @@ func main() {
 	initDatabase()
 	defer database.DBConn.Close()
 
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
-	})
+	e.GET("/api/v1/book", controllers.GetBooks)
+	e.GET("/api/v1/book/:id", controllers.GetBook)
+	e.POST("/api/v1/book", controllers.NewBook)
+	e.DELETE("/api/v1/book/:id", controllers.DeleteBook)
+
 	e.Logger.Fatal(e.Start(":3000"))
 }
